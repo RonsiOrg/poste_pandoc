@@ -1,10 +1,12 @@
 name: Convert Markdown to PDF
 
 on:
-  push:
-    tags:
-      - '*'
-
+#  push:
+#    tags:
+#      - '*'
+  release:
+    types: [published]  # o created
+    
 jobs:
   convert:
     runs-on: ubuntu-latest
