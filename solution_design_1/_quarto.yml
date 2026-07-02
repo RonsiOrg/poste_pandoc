@@ -1,5 +1,5 @@
 project:
-  type: default
+  type: book
 
 book:
   title: "Solution Design 1"
