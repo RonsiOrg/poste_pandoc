@@ -24,7 +24,7 @@ jobs:
       - name: Generate PDF
         run: |
           NAME=$(echo "${{ github.event.release.tag_name }}" | cut -d'-' -f2-)
-          TAG=$(echo "${{ github.event.release.tag_name }}" | cut -d'-' -f1-)
+          TAG=$(echo "${{ github.event.release.tag_name }}" | cut -d'-' -f1)
           echo "NAME=$NAME" >> "$GITHUB_ENV"
           echo "TAG=$TAG" >> "$GITHUB_ENV"
           cd $NAME
@@ -32,11 +32,14 @@ jobs:
           ls -l
           pwd
           pandoc --defaults ./md2pdf.yml \
-            -o $NAME-$TAG.pdf
+            -o ${{ github.event.release.tag_name }}.pdf
+      
+      - name: Debug - verifica GITHUB_ENV
+        run: cat "$GITHUB_ENV"
 
       - name: Upload PDF as release asset
         uses: softprops/action-gh-release@v2
         with:
-          files: $NAME-$TAG.pdf
+          files: ${{ github.event.release.tag_name }}.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
