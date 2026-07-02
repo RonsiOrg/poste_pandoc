@@ -21,14 +21,15 @@ jobs:
 
       - name: Generate PDF
         run: |
-          name=$(echo "${{ github.event.release.tag_name }}" | cut -d'-' -f2-)
-          cd ${{ name }}
+          NAME=$(echo "${{ github.event.release.tag_name }}" | cut -d'-' -f2-)
+          echo "NAME=$NAME" >> "$GITHUB_ENV"
+          cd $NAME
           pandoc --defaults md2pdf.yaml \
-            -o ${{ github.repository }}-${{ name }}-${{ github.event.release.tag_name }}.pdf
+            -o ${{ github.repository }}-$NAME-${{ github.event.release.tag_name }}.pdf
 
       - name: Upload PDF as release asset
         uses: softprops/action-gh-release@v2
         with:
-          files: ${{ github.repository }}-${{ name }}-${{ github.event.release.tag_name }}.pdf
+          files: ${{ github.repository }}-$NAME-${{ github.event.release.tag_name }}.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
