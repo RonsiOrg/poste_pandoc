@@ -27,11 +27,10 @@ jobs:
           TAG=$(echo "${{ github.event.release.tag_name }}" | cut -d'-' -f1)
           echo "NAME=$NAME" >> "$GITHUB_ENV"
           echo "TAG=$TAG" >> "$GITHUB_ENV"
-          cd $NAME
           echo "$NAME"
           ls -l
           pwd
-          pandoc --defaults ./md2pdf.yml \
+          pandoc --defaults $NAME/md2pdf.yml \
             -o ${{ github.event.release.tag_name }}.pdf
       
       - name: Debug - verifica GITHUB_ENV
