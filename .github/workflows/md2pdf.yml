@@ -27,8 +27,8 @@ jobs:
           echo "NAME=$NAME" >> "$GITHUB_ENV"
           cd $NAME
           echo "$NAME"
-          ls -l
-          pandoc --defaults ./md2pdf.yaml \
+          # ls -l
+          pandoc --defaults ./md2pdf.yml \
             -o ${{ github.repository }}-$NAME-${{ github.event.release.tag_name }}.pdf
 
       - name: Upload PDF as release asset
