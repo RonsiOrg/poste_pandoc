@@ -20,7 +20,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y pandoc texlive-xetex texlive-fonts-recommended texlive-latex-recommended
-
+    
       - name: Generate PDF
         run: |
           NAME=$(echo "${{ github.event.release.tag_name }}" | cut -d'-' -f2-)
@@ -29,8 +29,11 @@ jobs:
           echo "TAG=$TAG" >> "$GITHUB_ENV"
           echo "$NAME"
           cd $NAME
+         
           ls -l
           pwd
+          cat -A ./md2pdf.yml  | sed -n '1,6p'
+
           pandoc --defaults ./md2pdf.yml \
             -o ../${{ github.event.release.tag_name }}.pdf
       
