@@ -3,7 +3,7 @@
 ### 2.1 Panoramica della Soluzione
 Stato: <mark>[Bozza]</mark>
  
-> <mark><small>👤[OWNER PM]</small></mark>  
+> <mark><small>[OWNER PM]</small></mark>  
  
 Descrizione della soluzione proposta includendo:
  
