@@ -4,6 +4,7 @@ project:
 book:
   title: "Solution Design 1"
   chapters:
+    - index.qmd
     - 01_Summary.md
     - 02_Business_View.md
     - 03_Architectural_View.md
