@@ -20,6 +20,7 @@ jobs:
         run: |
           wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.10.14/quarto-1.10.14-linux-amd64.deb
           sudo dpkg -i quarto-1.10.14-linux-amd64.deb
+          quarto install tinytex
     
       - name: Generate PDF
         run: |
