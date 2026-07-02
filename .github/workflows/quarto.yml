@@ -30,9 +30,9 @@ jobs:
           echo "$NAME"
           #cd $NAME
          
-          ls -l
-          pwd
-          cat -A ./_quarto.yml  | sed -n '1,6p'
+          #ls -l
+          #pwd
+          #cat -A _quarto.yml  | sed -n '1,6p'
 
           quarto render $NAME --to pdf --output quarto_${{ github.event.release.tag_name }}.pdf
       
