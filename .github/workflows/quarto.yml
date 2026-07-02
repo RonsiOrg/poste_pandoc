@@ -36,7 +36,6 @@ jobs:
           #cat -A _quarto.yml  | sed -n '1,6p'
 
           quarto render $NAME --to pdf --output quarto_${{ github.event.release.tag_name }}.pdf
-          ls -allR
       
       - name: Debug - verifica GITHUB_ENV
         run: cat "$GITHUB_ENV"
