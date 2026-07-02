@@ -27,13 +27,14 @@ jobs:
           echo "NAME=$NAME" >> "$GITHUB_ENV"
           cd $NAME
           echo "$NAME"
-          # ls -l
+          ls -l
+          pwd
           pandoc --defaults ./md2pdf.yml \
-            -o ${{ github.repository }}-$NAME-${{ github.event.release.tag_name }}.pdf
+            -o ${{ github.repository }}/$NAME/${{ github.repository }}-$NAME-${{ github.event.release.tag_name }}.pdf
 
       - name: Upload PDF as release asset
         uses: softprops/action-gh-release@v2
         with:
-          files: ${{ github.repository }}-$NAME-${{ github.event.release.tag_name }}.pdf
+          files: ${{ github.repository }}/$NAME/${{ github.repository }}-$NAME-${{ github.event.release.tag_name }}.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
