@@ -7,4 +7,4 @@ number-sections: true
 input-files:
   - 01_Summary.md
   - 02_Business_View.md
-  - 03_Architecutral_View.md
+  - 03_Architectural_View.md
