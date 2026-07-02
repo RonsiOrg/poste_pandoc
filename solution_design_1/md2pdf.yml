@@ -1,7 +1,7 @@
 from: markdown
 to: pdf
-#pdf-engine: xelatex
-pdf-engine: lualatex
+pdf-engine: xelatex
+#pdf-engine: lualatex
 toc: true
 number-sections: true
 
